@@ -1,0 +1,25 @@
+.div{
+    text-align: center;
+}
+.flex{
+     margin: 0.16rem 0;
+ }
+.button {
+     margin: 0.16rem 0;
+     display: flex;
+     flex: 1;
+}
+ .forgot{
+     color: wheat;
+ }
+ .register{
+     margin: 0.08rem 0;
+     color: wheat;
+ }
+ .img{
+     width:60px;
+     height:60px;
+     border-radius:60px;
+     outline-width: 60px;
+
+ }

@@ -1,0 +1,57 @@
+.div{
+    border-radius: 1vh;
+    width: 98%;
+    border: 1px solid salmon;
+    height: 27vh;
+    margin: 1vh 1vh;
+}
+.div > h3 {
+    color: black;
+    text-align: center;
+    margin-top: 4vh;
+}
+.divRow{
+    display: flex;
+    flex-direction: row;
+    color:grey;
+    text-align: center;
+    justify-content: space-between;
+    height: 20vh;
+    width: 100%;
+
+}
+.divRow > h1{
+    height: 20vh;
+    line-height: 20vh;
+    color: black;
+}
+.divImg{
+    flex: 1;
+    height: 20vh;
+    line-height: 20vh;
+    padding-right: 2vh;
+    padding-left: 2vh;
+    margin: 0 auto;
+    flex-direction: row;
+    display: flex;
+    width: 100%;
+}
+
+.divImg > img {
+    width: 50%;
+    float: left;
+    height: 20vh;
+    vert-align: middle;
+    margin-top: 3.5vh;
+    margin-bottom: 3.5vh;
+    border-radius: 1vh;
+}
+
+.divImg > td {
+    height: 23.5vh;
+    line-height: 23.5vh;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    padding-left: 2vh;
+}

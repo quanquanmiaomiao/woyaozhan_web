@@ -1,0 +1,43 @@
+.div{
+    border-radius: 1vh;
+    width: 98%;
+    border: 1px solid salmon;
+    height: 37vh;
+    margin: 1vh 1vh;
+}
+
+.flex{
+    margin: 8vh   0.16rem;
+}
+
+
+.divImg{
+    flex: 1;
+    height: 20vh;
+    line-height: 20vh;
+    padding-right: 2vh;
+    padding-left: 2vh;
+    flex-direction: row;
+    display: flex;
+    width: 100%;
+}
+.divImg > img {
+    width: 30%;
+    float: left;
+    height: 20vh;
+    vert-align: middle;
+    margin-top: 3.5vh;
+    margin-bottom: 3.5vh;
+    border-radius: 1vh;
+}
+.divImg > div {
+    width: 55%;
+    height: 20vh;
+    line-height: 20vh;
+    margin-top: 3.5vh;
+    margin-bottom: 3.5vh;
+    flex-direction: column;
+    display: flex;
+    background-color: #00aaee;
+    text-align: center;
+}

@@ -1,0 +1,33 @@
+{
+  "name": "runoob-react-test",
+  "version": "1.0.0",
+  "description": "react 测试",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --hot"
+  },
+  "author": "曹文娟",
+  "license": "ISC",
+  "dependencies": {
+    "antd-mobile": "^0.9.13",
+    "css-loader": "^0.26.1",
+    "keymirror": "^0.1.1",
+    "postcss-loader": "^1.2.0",
+    "rc-banner-anim": "^0.5.4",
+    "rc-queue-anim": "^0.13.0",
+    "rc-tween-one": "^0.11.11",
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1",
+    "react-grid-layout": "^0.13.9",
+    "react-list": "^0.8.0",
+    "react-redux": "^4.4.6",
+    "react-router": "^3.0.0",
+    "react-router-redux": "^4.0.7",
+    "redux": "^3.6.0",
+    "redux-logger": "^2.7.4",
+    "redux-thunk": "^2.1.0",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.13.3"
+  }
+}
