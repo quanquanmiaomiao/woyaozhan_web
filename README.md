@@ -1,6 +1,6 @@
 
     项目介绍
- 1.框架  
+ 1.框架技术  
  
  React[http://reactjs.cn/react/docs/getting-started-zh-CN.html]  
      
@@ -22,13 +22,28 @@
      
  6.样式加载器  
  
- style-loader, css-loader  
-     
-      
+ style-loader, css-loader 
+  
+    2.架构介绍
+ | node_modules | ---引入的第三方框架 
+ | src| 源码
+ ---| api | ---网络请求方法
+ ---| assets| ---样式\图片以及其他资源
+ ---| component | ---组件
+ ---| container | ---页面
+ ---| reducers | ---数据管理
+ | AppRegistry |
+ | index.html |
+ | main.js | ---入口
+ | package.json | ---第三方框架
+ | routes.js |   ---路由
+ | RouteURL.js | ---路由URL
+ | webpack.config.js | --- 配置
+    
     运行步骤
 #.Installation
-  __npm install__
+  `npm install`
 
 #.Running Dev Server
-  npm start
+  `npm start`
 
