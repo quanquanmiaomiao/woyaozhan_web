@@ -17,19 +17,25 @@ const data = Array.from(new Array(7)).map((_val, i) => ({
   text: `名字${i}`,
 }));
 
-class MatchList extends Component{
+class MatchList extends Component {
+  constructor(props) {
+    super(props);
+    this.onPressItem = this.onPressItem.bind(this);
+  }
+
+  onPressItem(item, index) {}
 
 
-  render(){
-    return(
-        <Grid
-          isCarousel
-          carouselMaxRow={2}
-          data={data} columnNum={2} hasLine={false}
-              renderItem={(dataItem, index) => (
-         <MatchItem data={dataItem}/>
-        )}
-        />
+  render() {
+    return (
+      <Grid
+        isCarousel
+        carouselMaxRow={2}
+        onClick={(item,index) =>this.onPressItem(item,index)}
+        data={data} columnNum={2} hasLine={false}
+        renderItem={(dataItem, index) => (
+        <MatchItem data={dataItem}/>)}
+      />
     );
   }
 }

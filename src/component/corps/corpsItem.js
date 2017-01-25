@@ -19,18 +19,19 @@ class CorpsItem extends Component {
     const {data} = this.props;
     return (
       <div className={styles.div} >
-          <div className={styles.divImg} >
-            <img alt="example" src={data.img} />
-            <List>
-              <Item>{data.name}</Item>
-              <Item>{`队长:${data.captain}`}</Item>
-              <Item>{`胜率:${data.win}  排名:${data.rank}`}</Item>
-            </List>
+        <div className={styles.divImg} >
+          <img alt="example" src={data.img} />
+          <div>
+            <tr>{data.name}</tr>
+            <tr>{`队长:${data.captain}`}</tr>
+            <tr>{`胜率:${data.win}  排名:${data.rank}`}</tr>
           </div>
-        <Flex className={styles.flex}>
-          <Flex.Item><Button style={{marginRight: 1}}>加入战队</Button></Flex.Item>
-          <Flex.Item><Button style={{marginLeft: 1}}>我要战</Button></Flex.Item>
-        </Flex>
+        </div>
+        <div >
+          <Button style={{marginRight:5}} >加入战队</Button>
+          <Button>我要战</Button>
+        </div>
+
       </div>
     );
   }
