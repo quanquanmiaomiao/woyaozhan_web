@@ -29,18 +29,13 @@ const styles = {
     flexDirection: 'row',
     flex: 1,
     display: 'flex',
-    height: 350,
-  },
-  cardDiv: {
-    flex: 2,
-    color: 'pink',
-    backgroundColor: '#4169E1',
+    //height: 350,
   },
   loginDiv: {
     flex: 1,
     marginLeft: 10,
-    backgroundColor: '#4169E1',
-    height: 350
+    height: 350,
+    backgroundColor:'pink',
   },
   matchDiv: {
     marginTop: 10,
