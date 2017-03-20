@@ -9,7 +9,7 @@
   "author": "曹文娟",
   "license": "ISC",
   "dependencies": {
-    "antd-mobile": "^0.9.13",
+    "antd": "^2.8.1",
     "babel-polyfill": "^6.22.0",
     "css-loader": "^0.26.1",
     "es6-promise": "^4.0.5",
@@ -30,6 +30,7 @@
     "redux-thunk": "^2.1.0",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
-    "webpack": "^1.13.3"
+    "webpack": "^1.13.3",
+    "webpack-dev-server": "^2.4.2"
   }
 }

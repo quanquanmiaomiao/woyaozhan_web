@@ -7,7 +7,7 @@ import React,{
 import BannerAnim from 'rc-banner-anim';
 import QueueAnim from 'rc-queue-anim';
 import { TweenOneGroup } from 'rc-tween-one';
-import {Icon,Button} from '../../../node_modules/antd-mobile/lib/index.web';
+import {Icon,Button} from 'antd';
 import styles from './summary.css';
 
 const Element = BannerAnim.Element;

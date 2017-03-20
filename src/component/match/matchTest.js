@@ -1,59 +1,57 @@
 /**
- * Created by Caowenjuan on 16/12/28.
+ * Created by Caowenjuan on 17/3/15.
  */
+import QueueAnim from 'rc-queue-anim';
+import TweenOne, { TweenOneGroup } from 'rc-tween-one';
+import {Icon} from 'antd';
 import React,{
   Component,
   PropTypes,
 } from 'react';
-import QueueAnim from 'rc-queue-anim';
-import TweenOne, { TweenOneGroup } from 'rc-tween-one';
-import { Pagination,Icon,Card } from 'antd';
 import styles from './match.css';
 
-// 假数据
 const textData = {
   content: 'Taiwan called motorcycle, motor bike [1] or a motorcycle,' +
   ' the motorcycle referred to in the mainland, Hong Kong and Southeast' +
   ' Asia known as motorcycles.',
   title: 'Motorcycle',
 };
-let dataArray = Array.from(new Array(8)).map((_val, i) => ({
-  img_one: 'https://zos.alipayobjects.com/rmsportal/DGOtoWASeguMJgV.png',
-  img_two: 'https://zos.alipayobjects.com/rmsportal/SDLiKqyfBvnKMrA.png',
-  name_one: `地表最强${i}`,
-  name_two: `地表最强${i}`,
-  date: '12:50',
-}));
-
+let dataArray = [
+  {image: 'https://zos.alipayobjects.com/rmsportal/DGOtoWASeguMJgV.png'},
+  {image: 'https://zos.alipayobjects.com/rmsportal/BXJNKCeUSkhQoSS.png'},
+  {image: 'https://zos.alipayobjects.com/rmsportal/TDIbcrKdLWVeWJM.png'},
+  {image: 'https://zos.alipayobjects.com/rmsportal/SDLiKqyfBvnKMrA.png'},
+  {image: 'https://zos.alipayobjects.com/rmsportal/UcVbOrSDHCLPqLG.png'},
+  {image: 'https://zos.alipayobjects.com/rmsportal/QJmGZYJBRLkxFSy.png'},
+  {image: 'https://zos.alipayobjects.com/rmsportal/PDiTkHViQNVHddN.png'},
+  {image: 'https://zos.alipayobjects.com/rmsportal/beHtidyjUMOXbkI.png'},
+  {image: 'https://zos.alipayobjects.com/rmsportal/vJcpMCTaSKSVWyH.png'},
+  {image: 'https://zos.alipayobjects.com/rmsportal/dvQuFtUoRmvWLsZ.png'},
+  {image: 'https://zos.alipayobjects.com/rmsportal/QqWQKvgLSJaYbpr.png'},
+  {image: 'https://zos.alipayobjects.com/rmsportal/pTfNdthdsUpLPLJ.png'},
+];
 dataArray = dataArray.map(item => {
-  const img_one = item.img_one;
-  const img_two = item.img_two;
-  const name_one = item.name_one;
-  const name_two = item.name_two;
-  const date = item.date;
-  const content = textData.content;
-  const title = textData.title;
-  return {img_one, img_two, name_one, name_two, date, content, title}
+  const image = item.image
+  const content = textData.content
+  const title = textData.title
+  return {image, content, title}
 });
 
-class MatchList extends Component {
+
+class MatchTest extends Component {
   constructor(props) {
     super(props);
-    this.pageSize = 1;
     this.state = {
-      open: {},
-      curPage: 1,
+      open: {}
     };
-    this.renderChildren = this.renderChildren.bind(this);
-    this.renderCard = this.renderCard.bind(this);
     this.onItemClick = this.onItemClick.bind(this);
     this.onClose = this.onClose.bind(this);
-    this.onTweenEnd = this.onTweenEnd.bind(this);
     this.getDelay = this.getDelay.bind(this);
-    this.onPageChange = this.onPageChange.bind(this);
+    this.getLiChildren = this.getLiChildren.bind(this);
+    this.onTweenEnd = this.onTweenEnd.bind(this);
   }
 
-  onItemClick(i) {
+  onItemClick(e, i) {
     const open = this.state.open;
     Object.keys(open).forEach((key) => {
       if (key !== i && open[key]) {
@@ -66,7 +64,7 @@ class MatchList extends Component {
     });
   }
 
-  onClose(i) {
+  onClose(e, i) {
     const open = this.state.open;
     open[i] = false;
     this.setState({
@@ -80,47 +78,32 @@ class MatchList extends Component {
     this.setState({
       open,
     });
-  }
+  };
 
   getDelay(e) {
-    //延迟播放
-    const i = e.index + dataArray.length % 3;
-    return (i % 3) * 200 + Math.floor(1 / 3) * 100 + 200;
+    const i = e.index + dataArray.length % 4;
+    return (i % 4) * 100 + Math.floor(1 / 4) * 100 + 200;
   }
 
-  onPageChange(page, pageSize) {
-    this.setState({
-      curPage: page,
-    })
-  }
+  getLiChildren() {
+    const imgWidth = 110;
+    const imgHeight = 76;
+    const imgBoxWidth = 130;
+    const imgBoxHeight = 96;
 
-  renderCard(img_one, img_two, name_one, name_two, date) {
-    return (
-      <div>
-        <p>{date}</p>
-      </div>
-
-    );
-  }
-
-  renderChildren() {
-    const imgWidth = 250;
-    const imgHeight = 150;
-    const imgBoxWidth = 270;
-    const imgBoxHeight = 160;
     return dataArray.map((item, i) => {
-      const { img_one, img_two,name_one,name_two,date,title, content } = item;
+      const { image, title, content } = item;
       const isEnter = typeof this.state.open[i] === 'boolean';
       const isOpen = this.state.open[i];
-      const left = isEnter ? 0 : imgBoxWidth * (i % 3); // 决定列数
-      const imgLeft = isEnter ? imgBoxWidth * (i % 3) : 0;
-      const isRight = Math.floor((i % 3) / 2);
-      const isTop = Math.floor(i / 3);
+      const left = isEnter ? 0 : imgBoxWidth * (i % 4);
+      const imgLeft = isEnter ? imgBoxWidth * (i % 4) : 0;
+      const isRight = Math.floor((i % 4) / 2);
+      const isTop = Math.floor(i / 4);
       let top = isTop ? (isTop - 1) * imgBoxHeight : 0;
       top = isEnter ? top : imgBoxHeight * isTop;
       let imgTop = isTop ? imgBoxHeight : 0;
       imgTop = isEnter ? imgTop : 0;
-      const liStyle = isEnter ? {width: "80%", height: 160, zIndex: 1, left: left, top: top} :
+      const liStyle = isEnter ? {width: '100%', height: 175, zIndex: 1, left: left, top: top} :
       {left: left, top: top};
       const liAnimation = isOpen ?
         ({boxShadow: '0 2px 8px rgba(140, 140, 140, .35)'}) :
@@ -132,15 +115,15 @@ class MatchList extends Component {
           width: imgWidth,
           height: imgHeight,
           onComplete: this.onTweenEnd.bind(this, i),
-          left: imgBoxWidth * (i % 3),
+          left: imgBoxWidth * (i % 4),
           top: isTop ? imgBoxHeight : 0,
         }) : null;
       aAnimation = isOpen ?
         ({
           ease: 'easeInOutCubic',
           left: isRight ? (imgBoxWidth * 2) - 10 : 0,
-          width: '40%',
-          height: 160,
+          width: '50%',
+          height: 176,
           top: 0,
         }) : aAnimation;
 
@@ -154,14 +137,14 @@ class MatchList extends Component {
         >
           <TweenOne
             component="a"
-            onClick={e => this.onItemClick(i)}
+            onClick={e => this.onItemClick(e, i)}
             style={{
             left: imgLeft,
             top: imgTop,
           }}
             animation={aAnimation}
           >
-            {this.renderCard(img_one, img_two, name_one, name_two, date)}
+            <img src={image} width="100%" height="100%" />
           </TweenOne>
           <TweenOneGroup
             enter={[
@@ -169,49 +152,49 @@ class MatchList extends Component {
             { ease: 'easeOutCubic', type: 'from', left: isRight ? '50%' : '0%' },
           ]}
             leave={{ ease: 'easeInOutCubic', left: isRight ? '50%' : '0%' }}
+            component=""
           >
-            {isOpen && <p
+            {isOpen && <div
               className={styles.pic_details_demo_text_wrapper}
               key="text"
               style={{
-              left: isRight ? '8%' : '50%',
+              left: isRight ? '-8%' : '50%',
             }}
             >
               <h1>{title}</h1>
-              <Icon type="cross" onClick={e => this.onClose(i)} />
+              <Icon type="cross" onClick={e => this.onClose(e, i)} />
               <em />
               <p>{content}</p>
-            </p>}
+            </div>}
           </TweenOneGroup>
         </TweenOne>
       )
     })
   }
 
-
   render() {
     return (
       <div>
         <div className={styles.pic_details_demo_wrapper} >
+          <QueueAnim type="bottom" className={styles.pic_details_demo_title} >
+            <h1 key="h1" >比赛队列</h1>
+          </QueueAnim>
           <div className={styles.pic_details_demo} >
+
             <QueueAnim
               delay={this.getDelay}
               component="ul"
-              interval={0} //动画时间间隔
+              interval={0}
               className={styles.pic_details_demo_image_wrapper}
-              type="bottom" // 动画加载方式
+              type="bottom"
             >
-              {this.renderChildren()}
+              {this.getLiChildren()}
             </QueueAnim>
           </div>
         </div>
-        <Pagination
-          defaultCurrent={1}
-          total={dataArray.length}
-          defaultPageSize={this.pageSize} />
       </div>
-    );
+    )
   }
 }
 
-export default MatchList;
+export default MatchTest;

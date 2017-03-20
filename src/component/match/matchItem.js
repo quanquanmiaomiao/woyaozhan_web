@@ -18,10 +18,17 @@ class MatchItem extends Component {
     return (
       <div className={styles.div} >
         <div className={styles.divRow} >
-          <div className={styles.divImg} >
-            <img alt="example" src={data.imgOne} />
-            <td>{data.nameOne}</td>
-          </div>
+          <TweenOne
+            component="a"
+            onClick={e => this.onItemClick(e, i)}
+            style={{
+            left: imgLeft,
+            top: imgTop,
+          }}
+            animation={aAnimation}
+          >
+            <img src={image} width="100%" height="100%" />
+          </TweenOne>
           <h1>VS</h1>
           <div className={styles.divImg} >
             <img alt="example" width="60%" src={data.imgTwo} />

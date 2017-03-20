@@ -2,7 +2,7 @@
  * Created by Caowenjuan on 16/12/1.
  */
 // 引入ant-design样式
-require('antd-mobile/dist/antd-mobile.min.css');
+require('antd/dist/antd.min.css');
 import React from 'react';
 import routes from './routes';
 import { Provider } from 'react-redux';

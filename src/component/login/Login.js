@@ -5,7 +5,7 @@ import React,{
   Component,
 } from 'react';
 import styles from './login.css';
-import { List, InputItem,Icon,Button,Flex } from '../../../node_modules/antd-mobile/lib/index.web';
+import { List, InputItem,Icon,Button,Flex } from 'antd';
 import { createForm } from 'rc-form';
 
 const Login = createForm()(React.createClass({
