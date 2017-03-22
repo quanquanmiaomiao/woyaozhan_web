@@ -6,7 +6,6 @@ import React,{
 } from 'react';
 import Summary from '../component/carousel/Summary';
 import AboutMe from '../component/my';
-import styles from '../assets/style/homePage.css';
 import CorpsList from '../component/corps';
 
 class HomePageContainer extends Component {

@@ -8,12 +8,24 @@ import { Form, Icon, Input, Button, Checkbox } from 'antd';
 const FormItem = Form.Item;
 class LoginForm extends Component {
 
+  constructor(props) {
+    super(props);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
 
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props.form.validateFields((err, values) => {
+      if (!err) {
+        //TODO post登录接口
+      }
+    });
+  }
 
   render() {
     const { getFieldDecorator } = this.props.form;
     return (
-      <Form className="login-form" >
+      <Form onSubmit={this.handleSubmit} className="login-form" >
         <FormItem>
           {getFieldDecorator('userName', {
             rules: [{required: true, message: '请输入邮箱或者昵称'}],
@@ -35,8 +47,8 @@ class LoginForm extends Component {
           </Button>
         </FormItem>
         <FormItem>
-          <a className="login-form-forgot">忘记密码</a>
-          <p>还没有战斗账号?<a className="login-form-forgot">点我注册</a></p>
+          <a className="login-form-forgot" >忘记密码</a>
+          <p>还没有战斗账号?<a className="login-form-forgot" >点我注册</a></p>
         </FormItem>
         <FormItem>
           <Button

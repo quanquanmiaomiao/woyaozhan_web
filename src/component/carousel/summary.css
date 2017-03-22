@@ -1,8 +1,9 @@
+@import "../../assets/style/commonStyle.css";
 .ant_carousel {
     text-align: center;
     height: 360px;
     line-height: 360px;
-    background: #364d79;
+    background: var(--backgroundColor);
     color: #fff;
     width: 69%;
     overflow: hidden;

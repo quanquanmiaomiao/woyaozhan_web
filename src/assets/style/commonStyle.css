@@ -1,0 +1,8 @@
+:root {
+    /*共用颜色*/
+    --backgroundColor:  #364d79;
+
+    /*共用高度*/
+    --topHeight: 58px;
+    --tabbarHeight: 50px;
+}

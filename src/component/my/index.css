@@ -1,15 +1,16 @@
+@import "../../assets/style/commonStyle.css";
 .tab {
     text-align: center;
     height: 360px;
     width: 30%;
     line-height: 360px;
-    background: #364d79;
+    background: var(--backgroundColor);
     color: #fff;
     overflow: hidden;
     display: block;
     position: absolute;
     right: 2px;
-    top: 58px;
+    top: var(--topHeight);
     padding-left: 4px;
     padding-right: 4px;
 

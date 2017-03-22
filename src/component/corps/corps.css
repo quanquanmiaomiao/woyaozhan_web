@@ -1,5 +1,6 @@
+@import "../../assets/style/commonStyle.css";
 .wrapper {
-    background-color: #364d79;
+    background-color: var(--backgroundColor);
     margin: 10px auto;
     padding: 40px;
     display: block;

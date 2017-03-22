@@ -6,40 +6,30 @@ import React,{
   PropTypes,
 } from 'react';
 import {Button} from 'antd';
-import commonStyle from '../../util/commonStyle';
+import CreateCorps from '../createCorps'
+import CreateMatch from '../createMatch'
+import styles from './tabbar.css';
 const imgUrl = "https://zos.alipayobjects.com/rmsportal/PDiTkHViQNVHddN.png";
-const styles = {
-  headerDiv: {
-    justifyContent: 'space-between',
-    flexDirection: 'row',
-    display: 'flex',
-    marginBottom: 8,
-    paddingTop: 5,
-    paddingBottom: 5,
-    height: commonStyle.TOP_BAR_HEIGHT,
-    backgroundColor: '#364d79',
-  },
-  img: {
-    width: 40,
-    height: 40,
-    borderRadius: 40,
-    marginLeft:8,
-  }
-}
 
 
 class TopBar extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      visible: false
+    };
 
+  }
 
   render() {
     return (
-      <div style={styles.headerDiv} >
+      <div className={styles.headerDiv} >
         <img
-          style={styles.img}
+          className={styles.img}
           src={imgUrl} ></img>
-        <div style={{ flexDirection:'row',display:'flex'}} >
-          <Button style={{width: 100}} >创建战队</Button>
-          <Button style={{width: 100,marginRight: 10,marginLeft: 10}} >创建比赛</Button>
+        <div style={{ flexDirection:'row',display:'flex',alignItems:'center'}} >
+          <CreateCorps />
+          <CreateMatch />
         </div>
       </div>
     );
