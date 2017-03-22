@@ -7,6 +7,7 @@ import React,{
 import Summary from '../component/carousel/Summary';
 import AboutMe from '../component/my';
 import CorpsList from '../component/corps';
+import MatchList from '../component/match';
 
 class HomePageContainer extends Component {
 
@@ -17,6 +18,7 @@ class HomePageContainer extends Component {
         <Summary />
         <AboutMe />
         <CorpsList />
+        <MatchList />
       </div>
     )
   }
