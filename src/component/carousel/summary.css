@@ -1,0 +1,10 @@
+.ant_carousel {
+    text-align: center;
+    height: 360px;
+    line-height: 360px;
+    background: #364d79;
+    color: #fff;
+    width: 69%;
+    overflow: hidden;
+    display: block;
+}

@@ -3,15 +3,14 @@
  */
 import React from 'react';
 import { Route, IndexRoute,Link } from 'react-router';
-import HomePage  from './src/container/HomePage';
+import AppContainer  from './container/AppContainer';
+import HomePageContainer  from './container/HomePageContainer';
 import * as RouteURL from './RouteURL';
 
 // 注意path 的意义是访问时候的地址
-const routes= (
-  <Route
-    path={RouteURL.HomePage}
-    component={HomePage}
-  >
+const routes = (
+  <Route path={RouteURL.App()} component={AppContainer} >
+    <IndexRoute component={HomePageContainer} />
   </Route>
 );
 

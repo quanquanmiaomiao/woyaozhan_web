@@ -1,8 +1,9 @@
 .wrapper {
-    background-color: #96dbfa;
-    margin: auto auto;
+    background-color: #364d79;
+    margin: 10px auto;
     padding: 40px;
     display: block;
+
 }
 
 .pagination {

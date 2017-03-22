@@ -1,5 +1,5 @@
 // app 入口
-import { AppRegistry } from './AppRegistry';
+import { AppRegistry } from './src/AppRegistry';
 
 /**
  * 挂载 web app

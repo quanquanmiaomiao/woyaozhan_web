@@ -1,8 +1,5 @@
 /**
- * Created by Caowenjuan on 16/12/29.
- */
-/**
- * Created by Caowenjuan on 16/12/28.
+ * Created by Caowenjuan on 17/3/22.
  */
 import React,{
   Component,
@@ -10,15 +7,6 @@ import React,{
 } from 'react';
 import styles from "./corps.css";
 import { Card,Pagination,Button,BackTop } from 'antd';
-
-const data = Array.from(new Array(6)).map((_val, i) => ({
-  imgUrl: 'https://zos.alipayobjects.com/rmsportal/DGOtoWASeguMJgV.png',
-  name: `地表最强${i}`, // 战队名称
-  win: '80%', // 胜率
-  rank: `${i}`, // 排名
-  show: `${i}0`, // 场次
-  captain: '我放的一个防御塔' // 队长
-}));
 
 class CorpsList extends Component {
 
@@ -30,7 +18,7 @@ class CorpsList extends Component {
   renderChildren() {
     return (
       <div style={{flexDirection:'row',display:'flex',justifyContent:'center'}} >
-        {data.map((item, index) => {
+        {this.props.data.map((item, index) => {
           const {imgUrl,name,win,rank,show,captain} = item;
           return (
             <Card
@@ -76,15 +64,21 @@ class CorpsList extends Component {
       >
         <h1>战队列表</h1>
         {this.renderChildren()}
-          <Pagination
-            className={styles.pagination}
-            showQuickJumper
-            defaultCurrent={1}
-            pageSize={6}
-            total={data.length} />
+        <Pagination
+          className={styles.pagination}
+          showQuickJumper
+          defaultCurrent={1}
+          pageSize={6}
+          total={this.props.data.length} />
       </div>
     );
   }
 }
 
+CorpsList.propTypes = {
+  data: PropTypes.array,
+};
+CorpsList.defaultProps = {
+  data: [],
+};
 export default CorpsList;

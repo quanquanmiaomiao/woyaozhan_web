@@ -9,6 +9,7 @@
   "author": "曹文娟",
   "license": "ISC",
   "dependencies": {
+    "amumu": "^0.1.6",
     "antd": "^2.8.1",
     "babel-polyfill": "^6.22.0",
     "css-loader": "^0.26.1",
@@ -19,6 +20,7 @@
     "rc-queue-anim": "^0.13.0",
     "rc-tween-one": "^0.11.11",
     "react": "^15.4.1",
+    "react-addons-shallow-compare": "^15.4.2",
     "react-dom": "^15.4.1",
     "react-grid-layout": "^0.13.9",
     "react-list": "^0.8.0",
