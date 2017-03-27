@@ -13,6 +13,8 @@ const data = Array.from(new Array(6)).map((_val, i) => ({
   captain: '我放的一个防御塔' // 队长
 }));
 
+// TODO 决定pageSize with/itemWidth 向上取整
+
 const mapStateToProps = (state:Object):Object => {
   return {
     data: data,

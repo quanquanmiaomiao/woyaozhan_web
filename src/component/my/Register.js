@@ -18,21 +18,24 @@ class RegisterForm extends Component {
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
-        console.log('Received values of form: ', values);
+        //TODO post注册接口
       }
     });
   }
+
   checkConfirm(rule, value, callback) {
     const form = this.props.form;
     const password = form.getFieldValue('password');
-    if (password === undefined) {
+    const confirm = form.getFieldValue('confirm');
+    if (password === undefined || confirm === undefined) {
       return;
     }
-    if (value && value !== password) {
+    if (confirm !== password) {
       callback('两次密码输入不一致!');
     } else {
       callback();
-    }  }
+    }
+  }
 
   render() {
     const { getFieldDecorator } = this.props.form;

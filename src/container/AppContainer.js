@@ -9,7 +9,6 @@ import shallowCompare from 'react-addons-shallow-compare';
 import TopBar from '../component/topBar';
 
 class AppContainer extends Component {
-
   shouldComponentUpdate(nextProps, nextState) {
     return shallowCompare(this, nextProps, nextState);
   }

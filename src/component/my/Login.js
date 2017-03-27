@@ -29,7 +29,7 @@ class LoginForm extends Component {
       <Form onSubmit={this.handleSubmit} className="login-form" >
         <FormItem>
           {getFieldDecorator('userName', {
-            rules: [{required: true, message: '请输入邮箱或者昵称'}],
+            rules: [{required: true, message: '请输入邮箱或者昵称!'}],
           })(
             <Input prefix={<Icon type="user" style={{ fontSize: 13 }} />} placeholder="邮箱|昵称" />
           )}
