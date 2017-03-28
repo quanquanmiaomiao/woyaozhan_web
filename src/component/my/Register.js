@@ -3,6 +3,7 @@
  */
 import React,{
   Component,
+  PropTypes,
 } from 'react';
 import { Form, Input, Icon,Button } from 'antd';
 const FormItem = Form.Item;
@@ -18,7 +19,8 @@ class RegisterForm extends Component {
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
-        //TODO post注册接口
+        const {email,password,userName} = values;
+        this.props.onRegister({email, password, userName});
       }
     });
   }
@@ -68,7 +70,12 @@ class RegisterForm extends Component {
           )}
         </FormItem>
         <FormItem>
-          <Input prefix={<Icon type="user" style={{ fontSize: 13 }} />} placeholder="昵称" />
+          {getFieldDecorator('userName', {
+            rules: [
+              {required: false, message: '请输入昵称!'}]
+          })(
+            <Input prefix={<Icon type="user" style={{ fontSize: 13 }} />} placeholder="昵称" />
+          )}
         </FormItem>
         <FormItem>
           <Button
@@ -80,4 +87,7 @@ class RegisterForm extends Component {
   }
 }
 const WrappedRegisterForm = Form.create()(RegisterForm);
+WrappedRegisterForm.propTypes = {
+  onRegister: PropTypes.func.isRequired,
+};
 export default WrappedRegisterForm;

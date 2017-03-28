@@ -13,6 +13,7 @@ const data = Array.from(new Array(2)).map((_val, i) => ({
 
 
 const mapStateToProps = (state:Object):Object => {
+
   return {
     data: data,
     dispatch: state.dispatch,

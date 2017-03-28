@@ -8,7 +8,7 @@ import React,{
 class My extends Component {
   render(){
     return(
-      <div>hello</div>
+      <div>我的信息界面</div>
     )
   }
 }

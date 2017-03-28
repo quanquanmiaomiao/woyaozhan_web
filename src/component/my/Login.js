@@ -3,6 +3,7 @@
  */
 import React,{
   Component,
+  PropTypes,
 } from 'react';
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
 const FormItem = Form.Item;
@@ -16,9 +17,11 @@ class LoginForm extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.form.validateFields((err, values) => {
+    const form = this.props.form;
+    form.validateFields((err, values) => {
       if (!err) {
-        //TODO post登录接口
+        const {userName,password} = values;
+        this.props.onLogin({userName, password});
       }
     });
   }
@@ -61,5 +64,10 @@ class LoginForm extends Component {
     );
   }
 }
+
 const WrappedLoginForm = Form.create()(LoginForm);
+
+WrappedLoginForm.propTypes = {
+  onLogin: PropTypes.func.isRequired,
+};
 export default WrappedLoginForm;

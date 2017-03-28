@@ -8,14 +8,14 @@ require('babel-polyfill');
 import * as config from './config';
 
 
-const _param = (params:{}):string => {
+const _param = (params) => {
   return Object.keys(params).map((key) => {
     return `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`;
   }).join('&');
 };
 
-// get请求
-export const getFetch = async (path:string, params = {}) => {
+ // get请求
+export const getFetch = async (path, params = {}) => {
   const paramsWithToken = Object.assign(
     {},
     params,
@@ -41,7 +41,7 @@ export const getFetch = async (path:string, params = {}) => {
 };
 
 // post请求
-export const postFetch = async (path:string, json = {}) => {
+export const postFetch = async (path, json = {}) => {
   const paramsWithToken = Object.assign({},
     json,
     {

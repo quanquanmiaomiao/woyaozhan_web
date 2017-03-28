@@ -5,7 +5,7 @@ import { Record } from 'immutable';
 
 
 const InitialState = Record({
-  userInfo: null,
+  userInfo: undefined,
 });
 
 export default InitialState;

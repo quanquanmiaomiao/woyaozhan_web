@@ -8,7 +8,7 @@ import Summary from '../component/carousel/Summary';
 import AboutMe from '../component/my';
 import CorpsList from '../component/corps';
 import MatchList from '../component/match';
-
+import ToTop from '../component/backTop/ToTop';
 class HomePageContainer extends Component {
 
 
@@ -19,6 +19,7 @@ class HomePageContainer extends Component {
         <AboutMe />
         <CorpsList />
         <MatchList />
+        <ToTop />
       </div>
     )
   }
