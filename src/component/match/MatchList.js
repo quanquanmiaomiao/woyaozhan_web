@@ -5,7 +5,7 @@ import React,{
   PropTypes,
   Component,
 } from 'react';
-import { Row, Col, Slider } from 'antd';
+import { Row, Col } from 'antd';
 import styles from './match.css';
 
 
@@ -20,21 +20,15 @@ class MatchList extends Component {
     return (
       <div className={styles.divBack} >
         <h1>比赛列表</h1>
-        {data.map((row, index) => {
-          return (
-            <Row
-              key={index.toString()}
-            >
-              {row.rowItem.map((col, i) => {
-                return (
-                  <Col key={i.toString()} span={24 / 4} >
-                    <div className={styles.item} >Column</div>
-                  </Col>
-                );
-              })}
-            </Row>
-          )
-        })}
+        <Row>
+          {data.map((col, index) => {
+            return (
+              <Col key={index.toString()} span={24 / 4} >
+                <div className={styles.item} >{index}</div>
+              </Col>
+            );
+          })}
+        </Row>
       </div>
     );
   }

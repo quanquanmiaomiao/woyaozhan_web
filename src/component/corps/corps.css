@@ -6,6 +6,19 @@
     display: block;
 }
 
+
+.item {
+    text-align: center;
+    height: 180px;
+    line-height: 180px;
+    background: white;
+    color: #b1b1b1;
+    overflow: hidden;
+    display: block;
+    border-radius: 5px;
+    margin: 16px;
+}
+
 .pagination {
     float: right;
     margin-top: 10px;
