@@ -25,7 +25,7 @@ class AboutMe extends Component {
 
   render() {
     const {userInfo,login,register} = this.props;
-    if (userInfo === undefined) {
+    if (userInfo) {
       return (
         <div className={styles.tab} >
           <My />

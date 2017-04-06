@@ -11,51 +11,62 @@ class RegisterForm extends Component {
 
   constructor(props) {
     super(props);
-    this.checkConfirm = this.checkConfirm.bind(this);
+    this.state = {
+      confirmDirty: false,
+    };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.checkPassword = this.checkPassword.bind(this);
+    this.checkConfirm = this.checkConfirm.bind(this);
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.form.validateFieldsAndScroll((err, values) => {
+    const form = this.props.form;
+    form.validateFieldsAndScroll((err, values) => {
       if (!err) {
-        const {email,password,userName} = values;
-        this.props.onRegister({email, password, userName});
+        const {email,password} = values;
+        this.props.onRegister({email, password});
       }
     });
   }
 
-  checkConfirm(rule, value, callback) {
+  checkPassword(rule, value, callback) {
     const form = this.props.form;
-    const password = form.getFieldValue('password');
-    const confirm = form.getFieldValue('confirm');
-    if (password === undefined || confirm === undefined) {
-      return;
-    }
-    if (confirm !== password) {
-      callback('两次密码输入不一致!');
+    if (value && value !== form.getFieldValue('password')) {
+      callback('两次密码不一致,请重新输入!');
     } else {
       callback();
     }
   }
 
+  checkConfirm(rule, value, callback) {
+    const form = this.props.form;
+    if (value && this.state.confirmDirty) {
+      form.validateFields(['confirm'], {force: true});
+    }
+    callback();
+  }
+
+
   render() {
     const { getFieldDecorator } = this.props.form;
     return (
-      <Form onSubmit={this.handleSubmit} >
+      <Form onSubmit={this.handleSubmit} className="login-form" >
         <FormItem>
           {getFieldDecorator('email', {
             rules: [
-              {type: 'email', message: '输入的不是合法邮箱!'},
-              {required: true, message: '请输入你的邮箱!'}],
+              {type: 'email', message: '请输入合法邮箱!',},
+              {required: true, message: '请输入邮箱!'}],
           })(
             <Input prefix={<Icon type="mail" style={{ fontSize: 13 }} />} placeholder="邮箱" />
           )}
         </FormItem>
         <FormItem>
           {getFieldDecorator('password', {
-            rules: [
-              {required: true, message: '请输入密码!'}]
+            rules: [{required: true, message: '请输入密码!'},
+              {
+                validator: this.checkConfirm,
+              }],
           })(
             <Input prefix={<Icon type="lock" style={{ fontSize: 13 }} />} type="password" placeholder="密码" />
           )}
@@ -64,27 +75,25 @@ class RegisterForm extends Component {
           {getFieldDecorator('confirm', {
             rules: [
               {required: true, message: '请确认密码!'},
-              {validator: this.checkConfirm}],
+              {
+                validator: this.checkPassword,
+              }],
           })(
-            <Input prefix={<Icon type="lock" style={{ fontSize: 13 }} />} type="password" placeholder="确认密码" />
-          )}
-        </FormItem>
-        <FormItem>
-          {getFieldDecorator('userName', {
-            rules: [
-              {required: false, message: '请输入昵称!'}]
-          })(
-            <Input prefix={<Icon type="user" style={{ fontSize: 13 }} />} placeholder="昵称" />
+            <Input prefix={<Icon type="lock" style={{ fontSize: 13 }} />} type="password" placeholder="确认密码"
+                   onBlur={this.handleConfirmBlur} />
           )}
         </FormItem>
         <FormItem>
           <Button
-            type="primary" htmlType="submit" >
-            注册</Button>
+            type="primary" htmlType="submit" className="login-form-button" >
+            注册
+          </Button>
         </FormItem>
       </Form>
     );
   }
+
+
 }
 const WrappedRegisterForm = Form.create()(RegisterForm);
 WrappedRegisterForm.propTypes = {

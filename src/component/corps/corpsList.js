@@ -18,15 +18,20 @@ class CorpsList extends Component {
 
   showModal(item) {
     Modal.info({
+      iconType: '',
       title: 'XXX战队',
       content: (
         <div>
           <p>some messages...some messages...</p>
           <p>some messages...some messages...</p>
+          <p>some messages...some messages...</p>
+          <p>some messages...some messages...</p>
+          <p>some messages...some messages...</p>
+          <p>some messages...some messages...</p>
+          <p>some messages...some messages...</p>
+          <p>some messages...some messages...</p>
         </div>
       ),
-      onOk() {
-      },
       maskClosable: true,
     });
   }
