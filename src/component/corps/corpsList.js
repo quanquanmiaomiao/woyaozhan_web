@@ -6,12 +6,29 @@ import React,{
   PropTypes,
 } from 'react';
 import styles from "./corps.css";
-import { Pagination,Row, Col } from 'antd';
+import { Pagination,Row, Col,Modal } from 'antd';
 
 class CorpsList extends Component {
 
   constructor(props) {
     super(props);
+    this.showModal = this.showModal.bind(this);
+
+  }
+
+  showModal(item) {
+    Modal.info({
+      title: 'XXX战队',
+      content: (
+        <div>
+          <p>some messages...some messages...</p>
+          <p>some messages...some messages...</p>
+        </div>
+      ),
+      onOk() {
+      },
+      maskClosable: true,
+    });
   }
 
 
@@ -28,8 +45,11 @@ class CorpsList extends Component {
               <Col
                 span={24 / 6}
                 key={index.toString()}
+                onClick={() => this.showModal(item)}
               >
-                <div className={styles.item} >{index}</div>
+                <div
+                  className={styles.item}
+                >{index}</div>
               </Col>
             );
           })}

@@ -40,9 +40,16 @@ class CreateMatch extends Component {
   render() {
     return (
       <div>
-        <Button style={{width: 100,marginLeft: 10,marginRight: 10}} onClick={this.showModal} >创建比赛</Button>
-        <Modal title="创建比赛" visible={this.state.visible}
-               onOk={this.handleOk} onCancel={this.handleCancel}
+        <Button
+          style={{width: 100,marginLeft: 10,marginRight: 10}}
+          onClick={this.showModal}
+        >创建比赛</Button>
+        <Modal
+          title="创建比赛"
+          closable={false}
+          visible={this.state.visible}
+          onOk={this.handleOk}
+          onCancel={this.handleCancel}
         >
           <p>some contents...</p>
           <p>some contents...</p>

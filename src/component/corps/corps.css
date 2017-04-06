@@ -1,11 +1,11 @@
 @import "../../assets/style/commonStyle.css";
+
 .wrapper {
     background-color: var(--backgroundColor);
     margin: 10px auto;
     padding: 40px;
     display: block;
 }
-
 
 .item {
     text-align: center;

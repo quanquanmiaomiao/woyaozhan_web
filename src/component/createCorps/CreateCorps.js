@@ -44,8 +44,12 @@ class CreateCorps extends Component {
     return (
       <div>
         <Button style={{width: 100}} onClick={this.showModal} >创建战队</Button>
-        <Modal title="创建战队" visible={this.state.visible}
-               onOk={this.handleOk} onCancel={this.handleCancel}
+        <Modal
+          title="创建战队"
+          visible={this.state.visible}
+          closable={false}
+          onOk={this.handleOk}
+          onCancel={this.handleCancel}
         >
           <p>some contents...</p>
           <p>some contents...</p>
