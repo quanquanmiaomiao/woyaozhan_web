@@ -4,7 +4,9 @@
 const config = {
   token: null,
   key: null,
+  platformId: 1, // 平台
+  versionId:1, // api版本号
 };
-const host = "";
+const host = '127.0.0.1:8080';
 export const tootUrl = `http://${host}/v1/`;
 export default config;

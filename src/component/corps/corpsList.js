@@ -19,26 +19,21 @@ class CorpsList extends Component {
   showModal(item) {
     Modal.info({
       iconType: '',
-      title: 'XXX战队',
+      title: item.teamName,
       content: (
         <div>
-          <p>some messages...some messages...</p>
-          <p>some messages...some messages...</p>
-          <p>some messages...some messages...</p>
-          <p>some messages...some messages...</p>
-          <p>some messages...some messages...</p>
-          <p>some messages...some messages...</p>
-          <p>some messages...some messages...</p>
-          <p>some messages...some messages...</p>
+
         </div>
       ),
+      onOk() {
+      },
       maskClosable: true,
     });
   }
 
 
   render() {
-    const {data} = this.props;
+    const {data,total} = this.props;
     return (
       <div
         className={styles.wrapper}
@@ -64,7 +59,7 @@ class CorpsList extends Component {
           showQuickJumper
           defaultCurrent={1}
           pageSize={6}
-          total={this.props.data.length} />
+          total={total} />
       </div>
     );
   }
@@ -72,8 +67,10 @@ class CorpsList extends Component {
 
 CorpsList.propTypes = {
   data: PropTypes.array,
+  total: PropTypes.number,
+  getCorpsList: PropTypes.func.isRequired,
+  getCorpsInfo: PropTypes.func.isRequired,
+  joinCorps: PropTypes.func.isRequired,
 };
-CorpsList.defaultProps = {
-  data: [],
-};
+
 export default CorpsList;

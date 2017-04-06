@@ -1,27 +1,29 @@
 /**
  * Created by Caowenjuan on 17/3/22.
  */
-/**
- * Created by Caowenjuan on 17/3/22.
- */
+
 import React,{
   Component,
   PropTypes,
 } from 'react';
-import {Button,Modal} from 'antd';
+import {Button,Modal,Input,Icon} from 'antd';
+import styles from './corps.css';
 
 
 class CreateCorps extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      visible: false
+      visible: false,
     };
     this.showModal = this.showModal.bind(this);
     this.handleOk = this.handleOk.bind(this);
     this.handleCancel = this.handleCancel.bind(this);
+    this.renderChildren = this.renderChildren.bind(this);
+
   }
 
+  // Modal方法
   showModal() {
     this.setState({
       visible: true,
@@ -40,6 +42,16 @@ class CreateCorps extends Component {
     });
   }
 
+
+  renderChildren() {
+    return (
+      <div>
+        <Input size="large" placeholder="战队名称" />
+        <Icon type="plus" className={styles.iconWrapper}/>
+      </div>
+    )
+  }
+
   render() {
     return (
       <div>
@@ -49,11 +61,10 @@ class CreateCorps extends Component {
           visible={this.state.visible}
           closable={false}
           onOk={this.handleOk}
+          width={320}
           onCancel={this.handleCancel}
         >
-          <p>some contents...</p>
-          <p>some contents...</p>
-          <p>some contents...</p>
+          {this.renderChildren()}
         </Modal>
       </div>
 

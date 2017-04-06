@@ -3,18 +3,30 @@
  */
 import CorpsList from './CorpsList';
 import { connect } from 'react-redux';
+import {
+  getCorpsList,
+  getCorpsInfo,
+  joinCorps,
+} from '../../reducers/corps/CorpsController';
 
-const data = Array.from(new Array(6)).map((_val, index) => ({
-  value: index,
-
-}));
-
-// TODO 决定pageSize with/itemWidth 向上取整
 
 const mapStateToProps = (state:Object):Object => {
+  const item = {
+    id: 1,
+    teamName: '地表最强',
+    leaderId: 1,
+    createTime: '2017-04-09',
+    regionId: 1,
+    imageUrl: 'https://zos.alipayobjects.com/rmsportal/PDiTkHViQNVHddN.png',
+  }
+  const {corpsList,total} = state.corps;
+  const dispatch = state.dispatch;
   return {
-    data: data,
-    dispatch: state.dispatch,
+    data: [item,item],
+    total,
+    getCorpsList: (params) => getCorpsList(params, dispatch),
+    getCorpsInfo: (params) => getCorpsInfo(params, dispatch),
+    joinCorps: (params) => joinCorps(params, dispatch),
   }
 };
 

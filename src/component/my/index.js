@@ -34,7 +34,8 @@ class AboutMe extends Component {
     }
     return (
       <div className={styles.tab} >
-        <Tabs defaultActiveKey="1" >
+        <Tabs
+          defaultActiveKey="1" >
           <TabPane tab="登入" key="1" >
             <WrappedLoginForm
               onLogin={login}

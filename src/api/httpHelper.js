@@ -5,7 +5,7 @@
 require('es6-promise').polyfill();
 require('isomorphic-fetch');
 require('babel-polyfill');
-import * as config from './config';
+import config from './config';
 
 
 const _param = (params) => {
@@ -14,14 +14,16 @@ const _param = (params) => {
   }).join('&');
 };
 
- // get请求
+// get请求
 export const getFetch = async (path, params = {}) => {
   const paramsWithToken = Object.assign(
     {},
     params,
     {
-      Token: config.token,
-      Key: config.key,
+      token: config.token,
+      key: config.key,
+      platformId: config.platformId,
+      versionId: config.versionId,
     }
   );
   const RequestURL = `${path}?${_param(paramsWithToken)}`;
@@ -45,8 +47,10 @@ export const postFetch = async (path, json = {}) => {
   const paramsWithToken = Object.assign({},
     json,
     {
-      Token: config.token,
-      Key: config.key,
+      token: config.token,
+      key: config.key,
+      platformId: config.platformId,
+      versionId: config.versionId,
     }
   );
   const body = JSON.stringify(paramsWithToken);
